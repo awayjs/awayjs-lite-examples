@@ -1,0 +1,37 @@
+{
+  "name": "awayjs-lite-examples",
+  "version": "1.0.0",
+  "description": "A collection of simple code examples implementing the awayjs-lite engine",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/awayjs/awayjs-lite-examples.git"
+  },
+  "keywords": [
+    "AwayJS",
+    "3D",
+    "2D",
+    "graphics",
+    "WebGL"
+  ],
+  "author": "Rob Bateman",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/awayjs/awayjs-lite-examples/issues"
+  },
+  "homepage": "https://github.com/awayjs/awayjs-lite-examples#readme",
+  "dependencies": {
+    "awayjs-lite": "^5.0.0"
+  },
+  "devDependencies": {
+    "copy-webpack-plugin": "^1.1.1",
+    "html-webpack-plugin": "^2.15.0",
+    "ts-loader": "^0.8.2",
+    "typescript": "^1.9.0-dev.20160411",
+    "webpack": "^1.12.15",
+    "webpack-dev-server": "^1.14.1"
+  }
+}
