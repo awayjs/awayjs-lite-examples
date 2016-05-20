@@ -4,7 +4,33 @@
   "description": "A collection of simple code examples implementing the awayjs-lite engine",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "rimraf": "rimraf",
+    "webpack": "webpack",
+    "clean": "npm cache clean && npm run rimraf -- node_modules bin",
+    "clean:bin": "npm run rimraf -- bin",
+    "preclean:install": "npm run clean",
+    "clean:install": "npm set progress=false && npm install",
+    "preclean:start": "npm run clean",
+    "clean:start": "npm start",
+    "watch": "npm run watch:dev",
+    "watch:dev": "npm run build:dev -- --watch",
+    "watch:dev:hmr": "npm run watch:dev -- --hot",
+    "watch:test": "npm run test -- --auto-watch --no-single-run",
+    "watch:prod": "npm run build:prod -- --watch",
+    "build": "npm run build:dev",
+    "prebuild:dev": "npm run clean:bin",
+    "build:dev": "webpack --config webpack.config.js --progress --profile --colors --display-error-details --display-cached",
+    "prebuild:prod": "npm run clean:bin",
+    "build:prod": "webpack --config webpack.config.js  --progress --profile --colors --display-error-details --display-cached --bail",
+    "server": "npm run server:dev",
+    "server:dev": "webpack-dev-server --config webpack.config.js --inline --progress --profile --colors --watch --display-error-details --display-cached --content-base bin/",
+    "server:dev:hmr": "npm run server:dev -- --hot",
+    "server:prod": "http-server bin --cors",
+    "start": "npm run server:dev",
+    "start:hmr": "npm run server:dev:hmr",
+    "version": "npm run build",
+    "postversion": "git push && git push --tags"
   },
   "repository": {
     "type": "git",
@@ -27,9 +53,11 @@
     "awayjs-lite": "^5.0.0"
   },
   "devDependencies": {
+    "awesome-typescript-loader": "^0.17.0",
+    "compression-webpack-plugin": "^0.3.1",
     "copy-webpack-plugin": "^1.1.1",
     "html-webpack-plugin": "^2.15.0",
-    "ts-loader": "^0.8.2",
+    "rimraf": "^2.5.2",
     "typescript": "^1.9.0-dev.20160411",
     "webpack": "^1.12.15",
     "webpack-dev-server": "^1.14.1"

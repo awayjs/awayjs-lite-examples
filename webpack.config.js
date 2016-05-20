@@ -2,6 +2,7 @@ var path = require('path');
 var fs = require('fs');
 var webpack = require('webpack');
 var CopyWebPackPlugin = require('copy-webpack-plugin');
+var CompressionPlugin = require('compression-webpack-plugin');
 var HtmlWebPackPlugin = require('html-webpack-plugin');
 
 var examples = fs.readdirSync('./src').filter(function (file) {
@@ -17,12 +18,16 @@ for (var i = 0; i < examples.length; i++) {
 entry['awayjs-lite'] = ['awayjs-lite'];
 
 var plugins = [
-    new webpack.optimize.CommonsChunkPlugin('awayjs-lite', 'awayjs-lite.bundle.js'),
+    new webpack.optimize.CommonsChunkPlugin('awayjs-lite', 'js/awayjs-lite.bundle.js'),
 
     new CopyWebPackPlugin([{
         from: 'src/assets',
         to: 'assets'
-    }])
+    }]),
+
+    // new CompressionPlugin({
+    //     test: /\.js$/
+    // })
 ];
 
 for (var i = 0; i < examples.length; i++) {
@@ -55,7 +60,7 @@ module.exports = {
     module: {
         loaders: [
             // all files with a `.ts` or `.tsx` extension will be handled by `ts-loader`
-            { test: /\.ts(x?)$/, loader: require.resolve('ts-loader') }
+            { test: /\.ts(x?)$/, loader: require.resolve('awesome-typescript-loader') }
         ]
     },
     plugins: plugins

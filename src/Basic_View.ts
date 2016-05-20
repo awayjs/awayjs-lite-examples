@@ -91,7 +91,7 @@ function onEnterFrame(dt:number)
 /**
  * Listener function for resource complete event on asset library
  */
-function onResourceComplete (event:LoaderEvent)
+function onResourceComplete(event:LoaderEvent)
 {
 	var assets:Array<IAsset> = event.assets;
 	var length:number = assets.length;

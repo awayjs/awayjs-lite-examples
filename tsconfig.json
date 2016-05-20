@@ -2,12 +2,7 @@
   "compilerOptions": {
     "target": "ES5",
     "module": "commonjs",
-    "moduleResolution": "classic",
-    "sourceMap": true,
-    "baseUrl": ".",
-    "paths": {
-      "awayjs-lite/*": ["./node_modules/awayjs-lite/*"]
-    }
+    "moduleResolution": "node"
   },
   "files": [
   ]

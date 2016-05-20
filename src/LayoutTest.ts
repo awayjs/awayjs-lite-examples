@@ -1,7 +1,6 @@
 import {Image2D}					from "awayjs-lite/lib/image";
-import {Vector3D}					from "awayjs-lite/lib/geom";
 import {AssetLibrary}				from "awayjs-lite/lib/library";
-import {URLLoader, URLRequest}		from "awayjs-lite/lib/net";
+import {URLRequest}					from "awayjs-lite/lib/net";
 import {LoaderEvent, MouseEvent}	from "awayjs-lite/lib/events";
 import {CoordinateSystem}			from "awayjs-lite/lib/projections";
 import {PerspectiveProjection}		from "awayjs-lite/lib/projections";
